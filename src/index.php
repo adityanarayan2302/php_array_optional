@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -24,6 +25,32 @@
     );
 
     // echo (float)($adjusted[0]['RST']);
+
+    $str = "<table border=1><tr><td rowspan ='3'>Quarter</td> <td rowspan=2, colspan =2 > Retails Sails<br>(Millions of Dollars) </td><td rowspan=3> E-commerce <br>as a Percent<br> of Total</td><td rowspan =2, colspan =2> Percent Change <br>from Prior Quarter</td><td rowspan =2, colspan =2> Percent Change <br>from Same Quarter<br> A Year Ago</td></tr>";
+    $str .= "<tr></tr>";
+    $str .= "<tr><td>Total</td><td>E-commerce</td><td>Total</td><td>E-commerce</td><td>Total</td><td>E-commerce</td></tr>";
+    $str .= "<tr><td><strong>Adjusted</strong></td></tr>";
+    foreach ($adjusted as $key => $value) {
+        $str .= "<tr>";
+        foreach ($value as $key => $value) {
+            $str .= "<td>".$value . "</td>";
+            // echo $value ."<br>";
+        }
+        $str .= "</tr>";
+    }
+    $str .= "<tr><td><strong>Not Adjusted</strong></td></tr>";
+    foreach ($notAdjusted as $key => $value) {
+        $str .= "<tr>";
+        foreach ($value as $key => $value) {
+            $str .= "<td>".$value . "</td>";
+            // echo $value ."<br>";
+        }
+        $str .= "</tr>";
+    }
+
+    $str .= "</table>";
+
+    echo $str;
     ?>
 </body>
 </html>
